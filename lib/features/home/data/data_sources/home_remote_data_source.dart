@@ -1,4 +1,6 @@
+import 'package:my_bookly_clean_architecture/constants.dart';
 import 'package:my_bookly_clean_architecture/core/utils/api_services.dart';
+import 'package:my_bookly_clean_architecture/core/utils/functions/caching_data.dart';
 import 'package:my_bookly_clean_architecture/features/home/data/models/book_model/book_md.dart';
 import 'package:my_bookly_clean_architecture/features/home/domain/entities/book_entity.dart';
 
@@ -11,6 +13,7 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource {
   final ApiServices apiServices;
 
   HomeRemoteDataSourceImp(this.apiServices);
+
   List<BookEntity> getBooksList(Map<String, dynamic> data) {
     List<BookEntity> booksList = [];
     for (var bookMap in data['items']) {
@@ -24,6 +27,7 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource {
     var data = await apiServices.get(
         endPoint: "volumes?Filtering=free-ebooks&Sorting=newest&q=programming");
     List<BookEntity> booksList = getBooksList(data);
+    cachingBooksDataLocally(booksList,kFeaturedBooks);
     return booksList;
   }
 
