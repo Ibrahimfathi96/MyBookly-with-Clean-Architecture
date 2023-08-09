@@ -27,7 +27,7 @@ class BookMd extends BookEntity {
   }) : super(
           bookId: id!,
           image: volumeInfo!.imageLinks!.smallThumbnail ?? '',
-          authorName: volumeInfo.authors!.first,
+          authorName: volumeInfo.authors?.first ?? 'undefined author',
           price: 0,
           rating: volumeInfo.averageRating,
           title: volumeInfo.title!,
