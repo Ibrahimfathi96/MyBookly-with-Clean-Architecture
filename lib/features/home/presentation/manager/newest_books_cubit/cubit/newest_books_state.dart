@@ -14,5 +14,5 @@ class NewestBooksFailure extends NewestBooksState {
 
 class NewestBooksSuccess extends NewestBooksState {
   final List<BookEntity> booksList;
-  NewestBooksSuccess({required this.booksList});
+  NewestBooksSuccess(this.booksList);
 }
