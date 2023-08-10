@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_bookly_clean_architecture/core/utils/app_router.dart';
 import 'package:my_bookly_clean_architecture/features/home/presentation/views/widgets/best_seller_list_view.dart';
-import 'featured_list_view.dart';
+import 'package:my_bookly_clean_architecture/features/home/presentation/views/widgets/featured_books_listview_bloc_builder.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class HomeViewBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              FeaturedBooksListView(),
+              FeaturedBooksListViewBlocBuilder(),
               Padding(
                 padding: EdgeInsets.only(top: 40.0, left: 18, bottom: 20),
                 child: Text(

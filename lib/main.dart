@@ -35,7 +35,7 @@ class CleanArchMyBookly extends StatelessWidget {
             FetchFeaturedBooksUseCase(
               getIt.get<HomeRepoImpl>(),
             ),
-          ),
+          )..fetchFeaturedBooks(),
         ),
         BlocProvider(
           create: (_) => NewestBooksCubit(
